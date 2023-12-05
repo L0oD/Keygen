@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+	<h2>KEYGEN</h2>
+	<input id="log"></input>
+	<button type="button" onclick="main()">Gerar Chave</button>
+
+	<script>
+		let iCount = 0;
+		let chave = 'APQ5DGH92JXY6EF8ST3UZCVWIKB4MNR7';
+        var bAcabou = false
+		main()
+
+		function addHex(c1, c2) {
+			var hexStr = (parseInt(c1, 16) + parseInt(c2, 16)).toString(16);
+			while (hexStr.length < 6) { hexStr = '0' + hexStr; } 
+			return hexStr;
+		}
+
+		function subHex(c1, c2) {
+			var hexStr = (parseInt(c1, 16) - parseInt(c2, 16)).toString(16);
+			while (hexStr.length < 6) { hexStr = '0' + hexStr; } 
+			return hexStr;
+		}
+
+		function convert(p1) {
+			var output = "";
+			output.value = "";
+			for (var i = 0; i < p1.length; i++) {
+				output += p1[i].charCodeAt(0).toString(16);
+			}
+			return output
+		}
+
+        document.body.onload = adcElemento;
+
+        function adcElemento (sValue) {
+            // cria um novo elemento div
+            // e dá à ele conteúdo
+            var divNova = document.createElement("div");
+            
+            var conteudoNovo = document.createTextNode(sValue);
+            divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
+
+            // adiciona o novo elemento criado e seu conteúdo ao DOM
+            var divAtual = document.getElementById("div");
+            document.body.insertBefore(divNova, divAtual);
+
+            let output = document.getElementById("output");
+            let divList  = document.getElementsByTagName("div");
+
+            output.innerHTML += `div 0 same as div 0: ${divList[0].isSameNode(divList[0])}<br/>`;
+            output.innerHTML += `div 0 same as div 1: ${divList[0].isSameNode(divList[1])}<br/>`;
+            output.innerHTML += `div 0 same as div 2: ${divList[0].isSameNode(divList[2])}<br/>`;
+        }
+
+		function main() {
+            
+			do {
+				let senha = ("DI3" + makeSenha(3) + makeSenha(11) + makeSenha(2))
+				let ret1 = false
+				let ret2 = false
+				let ret3 = false
+				let final = false
+				ret3 = Validacao_3(senha)
+				console.log('ret3=' + ret3)
+
+				if (ret3 == true) {
+					validaProcess(senha)
+					bAcabou  = true
+					
+				}
+			} while (bAcabou==false);
+
+			return 1
+			console.log('ACABOU')
+		}
+
+		function validaProcess(p1) {
+			let ret1 = false
+			let ret2 = false
+			do {
+				let senha = ("DI3" + makeSenha(1) + p1.substr(4, 1) + makeSenha(11) + p1.substr(16, 1) + makeSenha(2))
+				ret1 = false
+				ret1 = Validacao_1(senha)
+				ret2 = false
+				ret2 = Validacao_2(senha)
+
+				if (ret1 == true && ret2 == true) {
+					console.log(ret1)
+					console.log(ret2)
+					console.log(senha)
+					document.getElementById("log").value = senha;
+                    adcElemento(senha)
+					return 1
+				}
+			} while (ret1 == false || ret2 == false);
+
+		}
+
+		function makeSenha(length) {
+			var result = '';
+			var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+			var charactersLength = characters.length;
+			for (var i = 0; i < length; i++) {
+				result += characters.charAt(Math.floor(Math.random() *
+					charactersLength));
+			}
+			return result;
+		}
+
+		function Validacao_3(p1) {
+			let add
+			let shr
+			var valor1 = 0
+			var valor2 = 0
+			var total_sub = 0
+			var letra1 = p1.substr(4, 1)
+			var letra2 = p1.substr(16, 1)
+
+			var offset = ""
+			for (var i = 0; i < 2; i++) {
+
+				if (i == 0) {
+					letra = letra1
+				} else {
+					letra = letra2
+				}
+				offset = ""
+
+				if (letra == 'A') {
+					offset = '0041C9DA'
+				} else if (letra == 'P') {
+					offset = '0041C9DC'
+				} else if (letra == 'Q') {
+					offset = '0041C9DE'
+				} else if (letra == '5') {
+					offset = '0041C9E0'
+				} else if (letra == 'D') {
+					offset = '0041C9E2'
+				} else if (letra == 'G') {
+					offset = '0041C9E4'
+				} else if (letra == 'H') {
+					offset = '0041C9E6'
+				} else if (letra == '9') {
+					offset = '0041C9E8'
+				} else if (letra == '2') {
+					offset = '0041C9EA'
+				} else if (letra == 'J') {
+					offset = '0041C9EC'
+				} else if (letra == 'X') {
+					offset = '0041C9EE'
+				} else if (letra == 'Y') {
+					offset = '0041C9F0'
+				} else if (letra == '6') {
+					offset = '0041C9F2'
+				} else if (letra == 'E') {
+					offset = '0041C9F4'
+				} else if (letra == 'F') {
+					offset = '0041C9F6'
+				} else if (letra == '8') {
+					offset = '0041C9F8'
+				} else if (letra == 'A') {
+					offset = '0041C9FA'
+				} else if (letra == 'T') {
+					offset = '0041C9FC'
+				} else if (letra == '3') {
+					ioffset = '0041C9FE'
+				} else if (letra == 'U') {
+					offset = '0041CA00'
+				} else if (letra == 'Z') {
+					offset = '0041CA02'
+				} else if (letra == 'C') {
+					offset = '0041CA04'
+				} else if (letra == 'V') {
+					offset = '0041CA06'
+				} else if (letra == 'W') {
+					offset = '0041CA08'
+				} else if (letra == 'I') {
+					offset = '0041CA0A'
+				} else if (letra == 'K') {
+					offset = '0041CA0C'
+				} else if (letra == 'B') {
+					offset = '0041CA0E'
+				} else if (letra == '4') {
+					ioffset = '0041CA10'
+				} else if (letra == 'M') {
+					offset = '0041CA12'
+				} else if (letra == 'N') {
+					offset = '0041CA14'
+				} else if (letra == 'R') {
+					offset = '0041CA16'
+				} else if (letra == '7') {
+					offset = '0041CA18'
+				}
+				add = addHex('FFBE3628', offset)
+				shr = add >>= 1
+
+				if (i == 0) {
+					valor1 = shr
+				} else {
+					valor2 = shr
+				}
+
+			}
+
+			total_sub = subHex(valor1, valor2)
+
+			if (parseInt(total_sub, 16) == parseInt('11', 16)) {
+				return true
+			} else {
+				return false
+			}
+
+		}
+
+		function Validacao_2(p1) {
+			let total = 0
+			let string = ''
+			for (var i = 0; i < p1.length; i++) {
+				iCount = i + 1
+
+				if (i != 3 && i != 8 && i != 13 && i != 12) {
+					total = total + ((parseInt(p1.charCodeAt(i), 10) * iCount));
+				}
+			}
+
+			iPosChave = (parseInt("8000001f".toString(16), 16) & total)
+			if (chave.charAt(iPosChave) == p1.charAt(12)) {
+				return true
+			} else {
+				return false
+			}
+		}
+
+		function Validacao_1(p1) {
+			let total = 0
+			for (var i = 0; i < p1.length; i++) {
+				iCount = i + 1
+
+				if (i != 3 && i != 4 && i != 8 && i != 16 && i != 13 && i != 12) {
+					total = total + ((parseInt(p1.charCodeAt(i), 10) * iCount) + iCount);
+				}
+			}
+
+			iPosChave = (parseInt("8000001f".toString(16), 16) & total)
+			if (chave.charAt(iPosChave) == p1.charAt(16)) {
+				return true
+			} else {
+				return false
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>
